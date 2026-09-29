@@ -1,0 +1,844 @@
+/* ------------------------------
+   GLOBAL
+------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f2ed;
+    color: #151515;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.section-container {
+    width: min(1200px, 88%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 130px 0;
+}
+
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    width: min(1400px, 92%);
+    margin: 0 auto;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 50%;
+
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+.logo:hover {
+    background: white;
+    color: #111;
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: white;
+
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 27px;
+    height: 2px;
+    background: white;
+    margin: 6px 0;
+}
+
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+    color: white;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("profile.jpg");
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.02);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.68) 0%,
+            rgba(0,0,0,.35) 45%,
+            rgba(0,0,0,.10) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(1400px, 88%);
+    margin: 0 auto;
+
+    padding-top: 80px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 11vw, 165px);
+    line-height: .82;
+
+    font-weight: 500;
+    letter-spacing: -7px;
+}
+
+.hero h1 span {
+    display: block;
+    font-style: italic;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+.hero-description {
+    margin-top: 40px;
+    max-width: 500px;
+
+    font-size: 20px;
+    color: rgba(255,255,255,.82);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 35px;
+}
+
+.button {
+    padding: 15px 25px;
+
+    border: 1px solid rgba(255,255,255,.75);
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+
+    transition: .3s;
+}
+
+.button-primary {
+    background: white;
+    color: #111;
+}
+
+.button-primary:hover {
+    background: transparent;
+    color: white;
+}
+
+.button-secondary:hover {
+    background: white;
+    color: #111;
+}
+
+.scroll-indicator {
+    position: absolute;
+    z-index: 2;
+
+    bottom: 35px;
+    right: 5%;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.scroll-line {
+    width: 70px;
+    height: 1px;
+    background: rgba(255,255,255,.6);
+}
+
+
+/* ------------------------------
+   SECTION LABELS
+------------------------------ */
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 70px;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.section-label span {
+    opacity: .45;
+}
+
+.section-label.light {
+    color: white;
+}
+
+
+/* ------------------------------
+   ABOUT
+------------------------------ */
+
+.about-section {
+    background: #f4f2ed;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.about-heading h2,
+.section-title-row h2,
+.service-heading h2 {
+    font-size: clamp(55px, 7vw, 105px);
+    line-height: .95;
+    letter-spacing: -5px;
+    font-weight: 500;
+}
+
+.about-heading h2 span,
+.section-title-row h2 span,
+.service-heading h2 span {
+    display: block;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.about-copy {
+    padding-top: 20px;
+}
+
+.about-copy p {
+    margin-bottom: 25px;
+    max-width: 570px;
+    color: #555;
+}
+
+.about-copy .large-copy {
+    font-size: 25px;
+    line-height: 1.45;
+    color: #171717;
+}
+
+
+/* ------------------------------
+   EXPERIENCE
+------------------------------ */
+
+.dark-section {
+    background: #151816;
+    color: white;
+}
+
+.section-title-row {
+    display: grid;
+    grid-template-columns: 1.4fr .6fr;
+
+    gap: 100px;
+    align-items: end;
+
+    margin-bottom: 90px;
+}
+
+.section-title-row > p {
+    max-width: 380px;
+    color: #9d9f9d;
+}
+
+.experience-list {
+    border-top: 1px solid #3c403d;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: .25fr 1fr 1fr;
+
+    gap: 40px;
+
+    padding: 50px 0;
+
+    border-bottom: 1px solid #3c403d;
+}
+
+.experience-number {
+    font-size: 11px;
+    color: #777c78;
+}
+
+.experience-type {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #858985;
+    margin-bottom: 10px;
+}
+
+.experience-info h3 {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.company {
+    color: #9c9f9c;
+}
+
+.experience-description {
+    color: #a9aba9;
+    max-width: 480px;
+}
+
+.date {
+    color: white;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+
+/* ------------------------------
+   LEADERSHIP
+------------------------------ */
+
+.leadership-section {
+    background: #ece9e2;
+}
+
+.section-title-row.dark-text > p {
+    color: #555;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid #bbb7af;
+    border-left: 1px solid #bbb7af;
+}
+
+.info-card {
+    min-height: 350px;
+    padding: 45px;
+
+    border-right: 1px solid #bbb7af;
+    border-bottom: 1px solid #bbb7af;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card-number {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: auto;
+}
+
+.info-card h3 {
+    font-size: 31px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+.info-card > p:last-child {
+    color: #5b5b5b;
+    max-width: 460px;
+}
+
+
+/* ------------------------------
+   COMMUNITY SERVICE
+------------------------------ */
+
+.service-section {
+    background: #243229;
+    color: white;
+}
+
+.service-layout {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 110px;
+}
+
+.service-heading {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+}
+
+.service-list {
+    border-top: 1px solid rgba(255,255,255,.25);
+}
+
+.service-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+
+    gap: 25px;
+
+    padding: 42px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+.service-item > span {
+    font-size: 10px;
+    opacity: .5;
+}
+
+.service-item h3 {
+    font-size: 27px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.service-item p {
+    color: rgba(255,255,255,.65);
+    max-width: 600px;
+}
+
+
+/* ------------------------------
+   EDUCATION / INTERESTS
+------------------------------ */
+
+.details-section {
+    background: #f4f2ed;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.detail-block {
+    border-top: 1px solid #aaa;
+    padding-top: 30px;
+}
+
+.detail-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 45px;
+}
+
+.detail-block h2 {
+    font-size: clamp(40px, 5vw, 70px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.detail-block h2 span {
+    display: block;
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+.detail-block > p:not(.detail-label) {
+    color: #555;
+    margin-top: 8px;
+}
+
+.interest-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.interest-list span {
+    padding: 12px 19px;
+
+    border: 1px solid #aaa;
+    border-radius: 100px;
+
+    font-size: 13px;
+}
+
+
+/* ------------------------------
+   CONTACT
+------------------------------ */
+
+.contact-section {
+    background: #d8d2c6;
+    padding: 150px 0;
+    text-align: center;
+}
+
+.contact-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+.contact-section h2 {
+    font-size: clamp(70px, 10vw, 145px);
+    line-height: .9;
+    letter-spacing: -7px;
+    font-weight: 500;
+}
+
+.contact-section h2 span {
+    display: block;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.contact-copy {
+    max-width: 500px;
+    margin: 40px auto 35px;
+    color: #555;
+}
+
+.contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    padding-bottom: 8px;
+    border-bottom: 1px solid #111;
+
+    font-size: 18px;
+}
+
+.contact-email span {
+    transition: transform .3s;
+}
+
+.contact-email:hover span {
+    transform: translate(5px, -5px);
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+    background: #151816;
+    color: white;
+
+    padding: 35px 0;
+}
+
+.footer-inner {
+    width: min(1400px, 92%);
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #666;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-top {
+    opacity: .7;
+    transition: opacity .3s;
+}
+
+.back-top:hover {
+    opacity: 1;
+}
+
+
+/* ------------------------------
+   SCROLL ANIMATIONS
+------------------------------ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ------------------------------
+   TABLET
+------------------------------ */
+
+@media (max-width: 900px) {
+
+    .section {
+        padding: 95px 0;
+    }
+
+    .nav-links {
+        position: fixed;
+
+        top: 0;
+        right: -100%;
+
+        width: 70%;
+        height: 100vh;
+
+        background: #151816;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 35px;
+
+        transition: right .4s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 101;
+    }
+
+    .about-grid,
+    .section-title-row,
+    .service-layout,
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .experience-item {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .experience-description {
+        grid-column: 2;
+    }
+
+    .service-heading {
+        position: static;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 80px;
+    }
+
+    .hero h1 {
+        font-size: 67px;
+        letter-spacing: -4px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .section-label {
+        margin-bottom: 45px;
+    }
+
+    .about-heading h2,
+    .section-title-row h2,
+    .service-heading h2 {
+        font-size: 55px;
+        letter-spacing: -3px;
+    }
+
+    .about-copy .large-copy {
+        font-size: 21px;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .experience-description {
+        grid-column: 1;
+    }
+
+    .info-card {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .contact-section {
+        padding: 100px 0;
+    }
+
+    .contact-section h2 {
+        font-size: 68px;
+        letter-spacing: -4px;
+    }
+
+    .contact-email {
+        font-size: 14px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+}
